@@ -26,6 +26,7 @@ public class OptionMenu {
                 pinnumber = menuInput.nextInt();
                 java.util.Iterator<Entry<Integer, Account>> iterator = data.entrySet().iterator();
 
+                //TODO:Fix this bug.
                 do {
                     Map.Entry key = (Map.Entry) iterator.next();
                     Account account = (Account) key.getValue();
@@ -43,8 +44,45 @@ public class OptionMenu {
         }
 
     }
-    //TODO:Make the function getAccountType next.
-    private int getAccountType(Account account) {
-        return 0;
+    
+    public void getAccountType(Account account) {
+        boolean option = false;
+        while(!option) {
+            try {
+                System.out.println("\nPlease choose your account type.");
+                System.out.println(" - Checkings Account");
+                System.out.println(" - Savings Account");
+                System.out.println(" - Exit");
+                System.out.println("\nSelect: ");
+
+                int selection = menuInput.nextInt();
+
+                    switch (selection) {
+                        case 1:
+                            getCheckingAccountType(account);
+                            break;
+                        case 2:
+                            getSavingsAccountType(account);
+                            break;
+                        case 3:
+                            option = true;
+                            break;
+
+                        default:
+                            System.out.println("Invalid Input.");
+
+                    }
+                
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid Input.");
+                    menuInput.next();
+                }
+
+            }
+        }
+    //TODO:Make the functions below next.
+    private void getSavingsAccountType(Account account) {
+    }
+    private void getCheckingAccountType(Account account) {
     }
 }
