@@ -82,6 +82,43 @@ public class OptionMenu {
         }
     //TODO:Make the functions below next.
     private void getSavingsAccountType(Account account) {
+        boolean option = false;
+        while (!option) {
+            try {
+                System.out.println("Savings Account");
+                System.out.println("Type 1 - View Balance");
+                System.out.println("Type 2 - Widthdraw Funds");
+                System.out.println(" Type 3 - Deposit Funds");
+				System.out.println(" Type 4 - Transfer Funds");
+				System.out.println(" Type 5 - Exit");
+				System.out.print("Choice: ");
+
+                int selection = menuInput.nextInt();
+
+                switch (selection) {
+                    case 1:
+                        System.out.println("\nView your Balance: " + moneyFormat.format(account.getBalance()));
+                        break;
+                    case 2:
+                        account.getSavingWithdrawInput();
+                        break;
+                    case 3:
+                        account.getSavingDepositInput();
+                        break;
+                    case 4:
+                        account.getTransferWithdrawInput("Your Savings");
+                        break;
+                    case 5:
+                        option = true;
+                        break;
+                    default:
+                        System.out.println("\nPlease input a apropriate choice.");
+                }
+            } catch (NumberFormatException e) {
+
+            }
+        }
+
     }
     private void getCheckingAccountType(Account account) {
     }
