@@ -80,7 +80,7 @@ public class OptionMenu {
 
             }
         }
-    //TODO:Make the functions below next.
+        
     private void getSavingsAccountType(Account account) {
         boolean option = false;
         while (!option) {
@@ -115,11 +115,59 @@ public class OptionMenu {
                         System.out.println("\nPlease input a apropriate choice.");
                 }
             } catch (NumberFormatException e) {
-
+                System.out.println("\nPlease input a apropriate choice.");
+                menuInput.next();
             }
         }
 
     }
     private void getCheckingAccountType(Account account) {
+        boolean option = false;
+        while (!option) {
+            try {
+                System.out.println("\n View your Checkings Account: ");
+                System.out.println(" Type 1 - View Balance");
+				System.out.println(" Type 2 - Withdraw Funds");
+				System.out.println(" Type 3 - Deposit Funds");
+				System.out.println(" Type 4 - Transfer Funds");
+				System.out.println(" Type 5 - Exit");
+				System.out.print("\nChoice: ");
+
+                int selection = menuInput.nextInt();
+
+                switch (selection) {
+                    case 1:
+                        System.out.println("\nAccount Balance: " + moneyFormat.getDecimalFormatSymbols());
+                        break;
+                    case 2:
+                        account.Withdraw();
+                        break;
+                    case 3:
+                        account.CheckingInput();
+                        break;
+                    case 4:
+                        account.Transfer();
+                        break;
+                    case 5:
+                        option = true;
+                        break;
+                    default:
+                        System.out.println("\nInvalid input" + selection);
+                        
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("\nInvalid input"); 
+                menuInput.next();
+            }
+        }
+
     }
+    //TODO: Implement this method;
+    public void getSaving(Account account) {
+
+    }
+
+    
+
+
 }
