@@ -11,7 +11,7 @@ public class Account {
     public void CheckingInput() {
     }
 
-    public void Transfer() {
+    public void Transfer(String string) {
     }
 
     public void getSavingDepositInput() {

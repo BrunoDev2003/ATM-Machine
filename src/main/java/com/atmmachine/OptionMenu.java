@@ -1,5 +1,6 @@
 package com.atmmachine;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
@@ -146,7 +147,7 @@ public class OptionMenu {
                         account.CheckingInput();
                         break;
                     case 4:
-                        account.Transfer();
+                        account.Transfer(null);
                         break;
                     case 5:
                         option = true;
@@ -164,10 +165,50 @@ public class OptionMenu {
     }
     //TODO: Implement this method;
     public void getSaving(Account account) {
+        boolean option = false;
+        while(!option) {
+            try {
 
+                System.out.println("\n View your Savings Account: ");
+                System.out.println(" Type 1 - View Balance");
+				System.out.println(" Type 2 - Withdraw Funds");
+				System.out.println(" Type 3 - Deposit Funds");
+				System.out.println(" Type 4 - Transfer Funds");
+				System.out.println(" Type 5 - Exit");
+				System.out.print("\nChoice: ");
+
+                int selection = menuInput.nextInt();
+                switch (selection) {
+                    case 1:
+                        System.out.println("\n Here is your Savings Account Balance: " + moneyFormat.getDecimalFormatSymbols());
+                        break;
+                    case 2:
+                        account.getSavingWithdrawInput();
+                        break;
+                    case 3:
+                        account.getSavingDepositInput();
+                        break;
+                    case 4:
+                        account.Transfer("Savings");
+                        break;
+                    case 5:
+                        option = true;
+                        break;
+                    default:
+                        System.out.println("\n Incorrect Input data.");
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.println("\n Incorrect Input data.");
+                menuInput.nextInt();
+            }
+        }
     }
 
-    
+    //TODO: Implement method.
+    public void createAcc() throws IOException {
+        
+    }
 
 
 }
