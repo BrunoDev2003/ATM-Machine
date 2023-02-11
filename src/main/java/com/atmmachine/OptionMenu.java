@@ -3,6 +3,7 @@ package com.atmmachine;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Map.Entry;
@@ -207,7 +208,28 @@ public class OptionMenu {
 
     //TODO: Implement method.
     public void createAcc() throws IOException {
-        
+        boolean end = false;
+        int no = 0;
+        while (!end) {
+            try {
+                System.out.println("\nPlease enter your customer number");
+                no = menuInput.nextInt();
+                java.util.Iterator<Entry<Integer, Account>> iterator = data.entrySet().iterator();
+                while(iterator.hasNext()) {
+                    Map.Entry pair = (Map.Entry) iterator.next();
+                    if (!data.containsKey(no)) {
+                        end = true;
+
+                    }
+                }
+                if (!end) {
+                    System.out.println("\nError! This number is already registered!");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("\nError! Invalid Choice.");
+                menuInput.next();
+            }
+        }
     }
 
 
