@@ -2,6 +2,9 @@ package com.atmmachine;
 
 public class Account {
 
+    public Account(int no, int pinnumber) {
+    }
+
     public void getSavingWithdrawInput() {
     }
 

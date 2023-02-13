@@ -230,7 +230,19 @@ public class OptionMenu {
                 menuInput.next();
             }
         }
+        System.out.println("\nPlease enter you PIN number account: ");
+        int pinnumber = menuInput.nextInt();
+        data.put(no, new Account(no,pinnumber));
+        System.out.println("\nYour new account has been registered to the system successfuly!");
+        System.out.println("\nPlease wait...");
+        getLogin();
     }
+
+    public void mainMenu() throws IOException {
+        
+    }
+
+    
 
 
 }
