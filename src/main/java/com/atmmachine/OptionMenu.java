@@ -239,6 +239,35 @@ public class OptionMenu {
     }
 
     public void mainMenu() throws IOException {
+        boolean end = false;
+        while (!end) {
+            try {
+                System.out.println("\n ATM");
+                System.out.println("\n Please type 1 for - Login");
+                System.out.println(" Please type 2 for - Create Account");
+                System.out.println("\nChoice:");
+                int choice = menuInput.nextInt();
+                switch (choice) {
+                    case 1:
+                        getLogin();
+                        end = true;
+                        break;
+                    case 2:
+                        createAcc();
+                        end = true;
+                        break;
+                    default:
+                        System.out.println("\n Please input a valid choice!");
+                }
+
+            } catch (InputMismatchException err) {
+                System.out.println("\n Please input a valid choice!");
+                menuInput.next();
+            }
+        }
+        System.out.println("\n Operation complete, thank you for using our ATM!");
+        menuInput.close();
+        System.exit(0);
         
     }
 
