@@ -1,6 +1,7 @@
 package com.atmmachine;
 
 import java.text.DecimalFormat;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Account {
@@ -28,10 +29,66 @@ public class Account {
     public void getSavingWithdrawInput() {
     }
 
+    public int getCustomerNumber() {
+        return customerNumber;
+    }
+
+    public void setCustomerNumber(int customerNumber) {
+        this.customerNumber = customerNumber;
+    }
+
+    public int getPinNumber() {
+        return pinNumber;
+    }
+
+    public void setPinNumber(int pinNumber) {
+        this.pinNumber = pinNumber;
+    }
+
+    public double getCheckingBalance() {
+        return checkingBalance;
+    }
+
+    public void setCheckingBalance(double checkingBalance) {
+        this.checkingBalance = checkingBalance;
+    }
+
+    public double getSavingBalance() {
+        return savingBalance;
+    }
+
+    public void setSavingBalance(double savingBalance) {
+        this.savingBalance = savingBalance;
+    }
+
+    public Scanner getIn() {
+        return in;
+    }
+
+    public void setIn(Scanner in) {
+        this.in = in;
+    }
+
+    public DecimalFormat getMoney() {
+        return money;
+    }
+
+    public void setMoney(DecimalFormat money) {
+        this.money = money;
+    }
+
     public void Withdraw() {
     }
 
     public void CheckingInput() {
+        boolean end = false;
+        while (!end) {
+            try {
+                
+            } catch (InputMismatchException e) {
+
+            }
+        }
     }
 
     public void Transfer(String string) {
