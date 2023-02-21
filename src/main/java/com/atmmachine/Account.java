@@ -84,11 +84,24 @@ public class Account {
         boolean end = false;
         while (!end) {
             try {
-                
+                System.out.println("\n Checking your current account balance: " + money.format(checkingBalance));
+                System.out.println("\n Amount to widthdraw from the Checkings Account");
+                double amount = in.nextDouble();
+                if((checkingBalance - amount) >= 0  && amount >= 0) {
+                    calcCheckingWithdraw(amount);
+                    System.out.println("\n Here is your Current Checkings Account Balance: " + money.format(checkingBalance));
+                    end = true;
+                } else {
+                    System.out.println("\n Balance is negative!");
+                }
             } catch (InputMismatchException e) {
-
+                System.out.println("\nInvalid Choice.");
+                in.next();
             }
         }
+    }
+
+    private void calcCheckingWithdraw(double amount) {
     }
 
     public void Transfer(String string) {
