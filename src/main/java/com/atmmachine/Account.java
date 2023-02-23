@@ -101,7 +101,9 @@ public class Account {
         }
     }
 
-    private void calcCheckingWithdraw(double amount) {
+    public double calcCheckingWithdraw(double amount) {
+        checkingBalance = (checkingBalance - amount);
+        return checkingBalance;
     }
 
     public void Transfer(String string) {
