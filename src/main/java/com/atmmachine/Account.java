@@ -106,7 +106,24 @@ public class Account {
         return checkingBalance;
     }
 
-    public void Transfer(String string) {
+    public void Transfer(String accString) {
+        boolean end = false;
+        while (!end) {
+            try {
+                if(accString.equals("Checkings")) {
+                    System.out.println("\nPlease select the account you wish to transfer funds to: ");
+                    System.out.println("1. Savings");
+                    System.out.println("2. Exit");
+                    System.out.println("\nYour Choice: ");
+                    int choice = in.nextInt();
+                    switch(choice) {
+                        case 1:
+                    }
+                }
+            } catch (InputMismatchException e) {
+
+            }
+        }
     }
 
     public void getSavingDepositInput() {
