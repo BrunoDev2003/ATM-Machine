@@ -118,12 +118,22 @@ public class Account {
                     int choice = in.nextInt();
                     switch(choice) {
                         case 1:
+                            System.out.println("\n Current Checkings Account Balance: " + money.format(accString));
+                            System.out.print("Amount you want to deposit into your savings account");
+                            double amount = in.nextDouble();
+                            if((checkingBalance + amount) >= 0 && (savingBalance - amount) >= 0 && amount >= 0) {
+                                calcSaveTransfer(amount);
+                                
+                            }
                     }
                 }
             } catch (InputMismatchException e) {
 
             }
         }
+    }
+
+    private void calcSaveTransfer(double amount) {
     }
 
     public void getSavingDepositInput() {
