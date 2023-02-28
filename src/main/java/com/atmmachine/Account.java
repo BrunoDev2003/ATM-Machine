@@ -123,9 +123,22 @@ public class Account {
                             double amount = in.nextDouble();
                             if((checkingBalance + amount) >= 0 && (savingBalance - amount) >= 0 && amount >= 0) {
                                 calcSaveTransfer(amount);
+                                System.out.println("\n Current Savings Account: " + money.format(savingBalance));
+                                System.out.println("\n Current Checkings Account:  " + money.format(checkingBalance));
+                                end = true;
                                 
+                            } else {
+                                System.out.println("\n Error! Balance Cannot Be Negative");
                             }
+                            break;
+                        case 2:
+                            return;
+                        default:
+                            System.out.println("\nInvalid Input.");
+                            break;
                     }
+                } else if (accString.equals("Savings")) {
+                    
                 }
             } catch (InputMismatchException e) {
 
