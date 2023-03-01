@@ -138,7 +138,28 @@ public class Account {
                             break;
                     }
                 } else if (accString.equals("Savings")) {
-                    
+                    System.out.println("\n Select a account that you wish to transfer funds to: ");
+                    System.out.println("1. Checking");
+                    System.out.println("2. Exit");
+                    System.out.println("\nChoice: ");
+                    int choice = in.nextInt();
+
+                    switch (choice) {
+                        case 1:
+                            System.out.println("\n Checkings Account: " + money.format(savingBalance));
+                            System.out.println("\n Amount you wish to deposit into the savings account: ");
+                            double amount = in.nextDouble();
+                            if ((checkingBalance + amount) >= 0 && (savingBalance - amount) >= 0 && amount >= 0) {
+                                calcSaveTransfer(amount);
+                                System.out.println("\n Current checkings account: " + money.format(checkingBalance));
+                                System.out.println("\n Current savings account: " + money.format(savingBalance));
+                                end = true;
+
+                            } else {
+                                System.out.println("\n Invalid input, Balance is negative.");
+                            }
+                            break;
+                    }
                 }
             } catch (InputMismatchException e) {
 
