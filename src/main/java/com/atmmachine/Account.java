@@ -26,7 +26,9 @@ public class Account {
         this.savingBalance = savingBalance;
     }
 
-    public void getSavingWithdrawInput() {
+    public double getSavingWithdrawInput( double amount) {
+        savingBalance = (savingBalance - amount);
+        return savingBalance;
     }
 
     public int getCustomerNumber() {
@@ -170,12 +172,32 @@ public class Account {
     }
 
     private void calcSaveTransfer(double amount) {
+        savingBalance = savingBalance - amount;
+        checkingBalance = checkingBalance + amount;
     }
 
     public void getSavingDepositInput() {
+        boolean end = false;
+        while (!end) {
+            try {
+                System.out.println("\n Here are your current Savings Account Balance: " + money.format(savingBalance));
+                System.out.println("\n here is the amount you want to deposit into your savings account:");
+                double amountSavings = in.nextDouble();
+
+                if ((savingBalance + amountSavings) >= 0 && amountSavings >= 0) {
+                    getSavingWithdrawInput(amountSavings);
+                    System.out.println("\n Current savings account balance: " + money.format(savingBalance));
+                    end = true;
+                } else {
+                    System.out.println("\n Error! Balance cannot be negative!");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("\n Error! Input cannot be negative!");
+                in.next();
+            }
+        }
     }
 
-    public void getTransferWithdrawInput(String string) {
-    }
+    
     
 }

@@ -108,7 +108,7 @@ public class OptionMenu {
                         account.getSavingDepositInput();
                         break;
                     case 4:
-                        account.getTransferWithdrawInput("Your Savings");
+                        account.Transfer("Your Savings");
                         break;
                     case 5:
                         option = true;
