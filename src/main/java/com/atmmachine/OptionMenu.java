@@ -32,7 +32,7 @@ public class OptionMenu {
                 do {
                     Map.Entry key = (Map.Entry) iterator.next();
                     Account account = (Account) key.getValue();
-                    if (data.containsKey(cardnumber) && pinnumber == getAccountType(account));
+                    if (data.containsKey(cardnumber) && pinnumber == account.getPinNumber());
                     break;
 
                 } while (iterator.hasNext());
@@ -99,10 +99,10 @@ public class OptionMenu {
 
                 switch (selection) {
                     case 1:
-                        System.out.println("\nView your Balance: " + moneyFormat.format(account.getBalance()));
+                        System.out.println("\nView your Balance: " + moneyFormat.format(account.getCheckingBalance()));
                         break;
                     case 2:
-                        account.getSavingWithdrawInput();
+                        account.CheckingInput();
                         break;
                     case 3:
                         account.getSavingDepositInput();
@@ -184,7 +184,7 @@ public class OptionMenu {
                         System.out.println("\n Here is your Savings Account Balance: " + moneyFormat.getDecimalFormatSymbols());
                         break;
                     case 2:
-                        account.getSavingWithdrawInput();
+                        account.Withdraw();
                         break;
                     case 3:
                         account.getSavingDepositInput();
@@ -232,7 +232,7 @@ public class OptionMenu {
         }
         System.out.println("\nPlease enter you PIN number account: ");
         int pinnumber = menuInput.nextInt();
-        data.put(no, new Account(no,pinnumber));
+        data.put(no, new Account(no,pinnumber, pinnumber));
         System.out.println("\nYour new account has been registered to the system successfuly!");
         System.out.println("\nPlease wait...");
         getLogin();

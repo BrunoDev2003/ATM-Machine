@@ -26,11 +26,6 @@ public class Account {
         this.savingBalance = savingBalance;
     }
 
-    public double getSavingWithdrawInput( double amount) {
-        savingBalance = (savingBalance - amount);
-        return savingBalance;
-    }
-
     public int getCustomerNumber() {
         return customerNumber;
     }
@@ -80,6 +75,29 @@ public class Account {
     }
 
     public void Withdraw() {
+        boolean end = false;
+        while (!end) {
+            try {
+                System.out.println("\n Checking your current account balance: " + money.format(savingBalance));
+                System.out.println("\n Amount to widthdraw from the savings Account");
+                double amount = in.nextDouble();
+                if((savingBalance - amount) >= 0  && amount >= 0) {
+                    calcSavingWithdraw(amount);
+                    System.out.println("\n Here is your Current Savings Account Balance: " + money.format(savingBalance));
+                    end = true;
+                } else {
+                    System.out.println("\n Balance is negative!");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("\nInvalid Choice.");
+                in.next();
+            }
+        }
+    }
+
+    public double calcSavingWithdraw(double amount) {
+        savingBalance = (savingBalance - amount);
+        return savingBalance;
     }
 
     public void CheckingInput() {
@@ -185,7 +203,7 @@ public class Account {
                 double amountSavings = in.nextDouble();
 
                 if ((savingBalance + amountSavings) >= 0 && amountSavings >= 0) {
-                    getSavingWithdrawInput(amountSavings);
+                    calcSavingWithdraw(amountSavings);
                     System.out.println("\n Current savings account balance: " + money.format(savingBalance));
                     end = true;
                 } else {
