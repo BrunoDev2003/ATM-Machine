@@ -1,17 +1,21 @@
 package com.atmmachine;
 
+import java.io.IOException;
+
 /**
  * Hello world!
  *
  */
 public class ATM 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws IOException
     {
-        System.out.println( "Hello World!" );
+        OptionMenu optionMenu = new OptionMenu();
+        greet();
+        optionMenu.mainMenu();
     }
 
-    public void greet( String[] args) {
+    public static void greet() {
         System.out.println( "Welcome to the ATM Machine developed by Bruno Gumsão | BrunoDev2003");
     }
 }
