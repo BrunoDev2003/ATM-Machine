@@ -5,10 +5,9 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Map.Entry;
-
-import javax.swing.text.html.HTMLDocument.Iterator;
 
 public class OptionMenu {
     Scanner menuInput = new Scanner(System.in);
@@ -206,7 +205,6 @@ public class OptionMenu {
         }
     }
 
-    //TODO: Implement method.
     public void createAcc() throws IOException {
         boolean end = false;
         int no = 0;
@@ -214,9 +212,9 @@ public class OptionMenu {
             try {
                 System.out.println("\nPlease enter your customer number");
                 no = menuInput.nextInt();
-                java.util.Iterator<Entry<Integer, Account>> iterator = data.entrySet().iterator();
+                Iterator it = (Iterator) data.entrySet().iterator();
                 while(iterator.hasNext()) {
-                    Map.Entry pair = (Map.Entry) iterator.next();
+                    Map.Entry key = (Map.Entry) iterator.next();
                     if (!data.containsKey(no)) {
                         end = true;
 
