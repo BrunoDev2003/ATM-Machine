@@ -163,7 +163,7 @@ public class OptionMenu {
         }
 
     }
-    //TODO: Implement this method;
+    
     public void getSaving(Account account) {
         boolean option = false;
         while(!option) {
@@ -208,13 +208,13 @@ public class OptionMenu {
     public void createAcc() throws IOException {
         boolean end = false;
         int no = 0;
-        while (!end) {
+        while (end) {
             try {
                 System.out.println("\nPlease enter your customer number");
                 no = menuInput.nextInt();
                 Iterator it = (Iterator) data.entrySet().iterator();
-                while(iterator.hasNext()) {
-                    Map.Entry key = (Map.Entry) iterator.next();
+                while(it.hasNext()) {
+                    Map.Entry key = (Map.Entry) it.next();
                     if (!data.containsKey(no)) {
                         end = true;
 
@@ -222,6 +222,7 @@ public class OptionMenu {
                 }
                 if (!end) {
                     System.out.println("\nError! This number is already registered!");
+                    System.out.println(end);
                 }
             } catch (InputMismatchException e) {
                 System.out.println("\nError! Invalid Choice.");
